@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { Button, Grid, TextField } from "@material-ui/core"
+import { IUserInput } from "../../Common/Interfaces"
 import "./SearchBar.css"
 
 interface ISearchBarProps {
-  SetUserInput: (userInput: String | null) => void
+  SetUserInput: (userInput: IUserInput) => void
 }
 
 function SearchBar(props: ISearchBarProps) {
@@ -20,7 +21,7 @@ function SearchBar(props: ISearchBarProps) {
       SearchQuery !== null &&
       SearchQuery !== ""
     ) {
-      let UserInput: String = SearchQuery
+      let UserInput: IUserInput = { SearchQuery: SearchQuery }
       props.SetUserInput(UserInput)
     } else {
       setHasFocus(true)

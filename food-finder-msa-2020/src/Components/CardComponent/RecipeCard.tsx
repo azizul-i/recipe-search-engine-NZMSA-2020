@@ -37,12 +37,12 @@ function RecipeCard(props: IRecipeCardProps) {
             )}
             <CardContent>
               <Typography
-                variant="body2"
+                variant="caption"
                 color="textSecondary"
                 component="p"
                 className="MediaCardDescription"
               >
-                <h3 className="RecipeCardTitle">{props.Title}</h3>
+                <h4 className="RecipeCardTitle">{props.Title}</h4>
                 <b>Ingredients: </b>
                 {props.Ingredients}
               </Typography>

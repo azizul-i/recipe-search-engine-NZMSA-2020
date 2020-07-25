@@ -24,7 +24,7 @@ function MediaGrid(props: IMediaGridProps) {
 
   useEffect(() => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
-    fetch(proxyurl + "http://www.recipepuppy.com/api/?q=" + props.SearchQuery)
+    fetch(proxyurl + "http://www.recipepuppy.com/api/?i=" + props.SearchQuery)
       .then((response) => response.json())
       .then((response) => {
         console.log(response.results)
@@ -35,7 +35,6 @@ function MediaGrid(props: IMediaGridProps) {
 
   var Cards: JSX.Element[] = []
   ItemArray.forEach((el: IState, i: Number) => {
-    console.log("ImageUrl:" + el.thumbnail)
     if (!el) {
       return
     }

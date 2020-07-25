@@ -21,6 +21,7 @@ const theme = createMuiTheme({
 function App() {
   const [UserInput, setUserInput] = useState<IUserInput>({
     SearchQuery: "",
+    Filter: [],
   })
 
   function SetUserInput(a: IUserInput) {
@@ -30,7 +31,8 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
-        <Header Title="Foodle" />
+        {console.log("App Search Text: " + UserInput.SearchQuery)}
+        <Header Title="Food-Finder" />
         <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)} />
         <RecipeGrid SearchQuery={UserInput.SearchQuery} />
       </MuiThemeProvider>

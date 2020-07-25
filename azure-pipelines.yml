@@ -8,7 +8,7 @@ trigger:
 - develop
 
 variables:
-  rootDir: 'my-app'
+  rootDir: 'food-finder-msa-2020'
   buildDir: '$(rootDir)/build'
 
 pool:

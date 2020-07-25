@@ -4,6 +4,7 @@ import SearchBar from "./Components/SearchBarComponent/SearchBar"
 import { IUserInput } from "./Common/Interfaces"
 import RecipeGrid from "./Components/RecipeGridComponent/RecipeGrid"
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core"
+import Header from "./Components/HeaderComponent/Header"
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
+        <Header Title="Foodle" />
         <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)} />
         <RecipeGrid SearchQuery={UserInput.SearchQuery} />
       </MuiThemeProvider>

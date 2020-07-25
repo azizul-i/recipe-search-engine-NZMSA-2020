@@ -1,6 +1,7 @@
 import React from "react"
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
+import FoodIcon from "../../Images/foodicon-small.png"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
@@ -17,10 +18,23 @@ interface IRecipeCardProps {
 function RecipeCard(props: IRecipeCardProps) {
   return (
     <div>
-      <Link href={props.RecipeLink} target="_blank">
+      <Link
+        href={props.RecipeLink}
+        style={{ textDecoration: "none" }}
+        target="_blank"
+      >
         <Card className="MediaCardContainer">
           <CardActionArea>
-            <CardMedia className="MediaCardImage" image={props.ImageUrl} />
+            {props.ImageUrl ? (
+              <CardMedia className="MediaCardImage" image={props.ImageUrl} />
+            ) : (
+              <CardMedia
+                className="MediaCardImage"
+                src={FoodIcon}
+                component="img"
+                title="recipelogo"
+              />
+            )}
             <CardContent>
               <Typography
                 variant="body2"
@@ -28,10 +42,8 @@ function RecipeCard(props: IRecipeCardProps) {
                 component="p"
                 className="MediaCardDescription"
               >
-                <b>{props.Title}</b>
-                <p>
-                  <b>Ingredients: </b>
-                </p>
+                <h3 className="RecipeCardTitle">{props.Title}</h3>
+                <b>Ingredients: </b>
                 {props.Ingredients}
               </Typography>
             </CardContent>
@@ -43,3 +55,9 @@ function RecipeCard(props: IRecipeCardProps) {
 }
 
 export default RecipeCard
+interface IRecipeCardProps {
+  Title: string | undefined
+  ImageUrl: string | undefined
+  Ingredients: string | undefined
+  RecipeLink: string | undefined
+}

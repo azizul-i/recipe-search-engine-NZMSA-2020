@@ -1,14 +1,18 @@
 .MediaCardContainer {
-  max-width: px;
+  max-width: 310px;
   margin: auto;
 }
 .MediaCardImage {
   height: 80px !important;
   max-width: 80px;
+  margin: auto;
 }
 .MediaCardDescription {
   height: 100px;
-  padding: 30px;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   overflow-wrap: break-word;
+}
+
+.RecipeCardTitle {
+  color: #36454f;
 }

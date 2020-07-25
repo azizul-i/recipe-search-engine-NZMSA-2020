@@ -29,7 +29,7 @@ function SearchBar(props: ISearchBarProps) {
   const handleSearchQueryChange = (inputString: string | null) => {
     setSearchQuery(inputString)
   }
-  const [HasFocus, setHasFocus] = useState<boolean>(false)
+
   const classes = useStyles()
 
   const handleSubmit = () => {
@@ -55,9 +55,6 @@ function SearchBar(props: ISearchBarProps) {
       }
       props.SetUserInput(UserInput)
       setSearchQuery("")
-      setHasFocus(false)
-    } else {
-      setHasFocus(true)
     }
   }
 
@@ -92,8 +89,6 @@ function SearchBar(props: ISearchBarProps) {
             id="outlined-required"
             label="Enter an Ingredient"
             variant="outlined"
-            error={HasFocus && SearchQuery === ""}
-            onClick={() => setHasFocus(true)}
             value={SearchQuery}
             onChange={(e) => handleSearchQueryChange(e.target.value)}
           />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import RecipeCard from "../CardComponent/RecipeCard"
+import CircularProgress from "@material-ui/core/CircularProgress"
 import { Grid } from "@material-ui/core"
 import "./RecipeGrid.css"
 
@@ -13,6 +14,7 @@ interface IMediaGridProps {
   SearchQuery: string | null
 }
 function MediaGrid(props: IMediaGridProps) {
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [ItemArray, setItemArray] = useState<IState[]>([
     {
       thumbnail: undefined,
@@ -23,15 +25,17 @@ function MediaGrid(props: IMediaGridProps) {
   ])
 
   useEffect(() => {
+    setIsLoading(true)
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
     fetch(proxyurl + "http://www.recipepuppy.com/api/?i=" + props.SearchQuery)
       .then((response) => response.json())
       .then((response) => {
         setItemArray(response.results)
+        setIsLoading(false)
       })
       .catch(() => {
         console.log("An Error Occured, Please Refresh The Page")
-        alert("An Error Occured, Please Refresh The Page")
+        alert("An API Error Occured")
       })
   }, [props.SearchQuery])
 
@@ -61,8 +65,9 @@ function MediaGrid(props: IMediaGridProps) {
 
   return (
     <div>
+      {isLoading ? <CircularProgress color={"secondary"} size={100} /> : null}
       <Grid container spacing={3} className="MediaGridContainer">
-        {Cards}
+        {!isLoading ? Cards : null}
       </Grid>
     </div>
   )

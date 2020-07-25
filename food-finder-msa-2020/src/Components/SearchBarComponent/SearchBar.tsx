@@ -52,7 +52,6 @@ function SearchBar(props: ISearchBarProps) {
       }
       let UserInput: IUserInput = {
         SearchQuery: ConcatenateHistory(prevHistory),
-        Filter: prevHistory,
       }
       props.SetUserInput(UserInput)
       setSearchQuery("")
@@ -80,7 +79,6 @@ function SearchBar(props: ISearchBarProps) {
     setHistory(prevHistory)
     let UserInput: IUserInput = {
       SearchQuery: ConcatenateHistory(prevHistory),
-      Filter: prevHistory,
     }
     props.SetUserInput(UserInput)
   }

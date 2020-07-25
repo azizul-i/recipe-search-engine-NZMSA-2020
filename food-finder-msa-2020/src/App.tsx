@@ -24,8 +24,8 @@ function App() {
     Filter: [],
   })
 
-  function SetUserInput(a: IUserInput) {
-    setUserInput(a)
+  function SetUserInput(userInput: IUserInput) {
+    setUserInput(userInput)
   }
 
   return (
@@ -36,7 +36,9 @@ function App() {
           Description="Enter ingredients one by one into the system, and find the perfect recipe for you!"
           Comments="| Click the cards for further detail on the recipes |"
         />
-        <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)} />
+        <SearchBar
+          SetUserInput={(ingredients: IUserInput) => SetUserInput(ingredients)}
+        />
         <RecipeGrid SearchQuery={UserInput.SearchQuery} />
       </MuiThemeProvider>
     </div>

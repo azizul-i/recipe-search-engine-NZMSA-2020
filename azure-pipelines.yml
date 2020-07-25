@@ -23,7 +23,7 @@ steps:
 - script: |
     cd $(rootDir)
     npm install
-    npm run test
+    CI=true npm run test
     npm run build
     cd ..
   displayName: 'npm install, test and build'

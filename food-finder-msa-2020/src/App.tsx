@@ -31,8 +31,11 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
-        {console.log("App Search Text: " + UserInput.SearchQuery)}
-        <Header Title="Food-Finder" />
+        <Header
+          Title="Food-Finder"
+          Description="Enter ingredients one by one into the system, and find the perfect recipe for you!"
+          Comments="| Click the cards for further detail on the recipes |"
+        />
         <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)} />
         <RecipeGrid SearchQuery={UserInput.SearchQuery} />
       </MuiThemeProvider>

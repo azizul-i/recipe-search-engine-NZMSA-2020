@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, Grid, TextField } from "@material-ui/core"
+import { Button, Grid, TextField, Typography } from "@material-ui/core"
 import { IUserInput } from "../../Common/Interfaces"
 import "./SearchBar.css"
 import { makeStyles } from "@material-ui/core/styles"
@@ -33,7 +33,6 @@ function SearchBar(props: ISearchBarProps) {
   const classes = useStyles()
 
   const handleSubmit = () => {
-    console.log("History: ", History)
     if (
       SearchQuery?.length !== 0 &&
       SearchQuery !== null &&
@@ -72,7 +71,6 @@ function SearchBar(props: ISearchBarProps) {
         ingredientsList = el
       }
     })
-    console.log("Printing Ingredeints List", ingredientsList)
     return ingredientsList
   }
 
@@ -85,7 +83,6 @@ function SearchBar(props: ISearchBarProps) {
       Filter: prevHistory,
     }
     props.SetUserInput(UserInput)
-    console.log("ingredient deleted", ingredient)
   }
 
   return (
@@ -106,10 +103,17 @@ function SearchBar(props: ISearchBarProps) {
 
         <Grid item xs={6} sm={3}>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Find Recipes!
+            Add to your Ingredient List!
           </Button>
         </Grid>
       </Grid>
+      <h6>*Powered by Recipe Puppy API</h6>
+      <br />
+      <Typography variant="body1" component="p" gutterBottom>
+        {History.length === 0
+          ? "Added Ingredients: NONE! :("
+          : "Added Ingredients: BELOW! :)"}
+      </Typography>
       <ul>
         {History.map((el: string, i: number) => {
           return (

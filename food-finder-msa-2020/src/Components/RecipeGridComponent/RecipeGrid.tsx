@@ -27,10 +27,12 @@ function MediaGrid(props: IMediaGridProps) {
     fetch(proxyurl + "http://www.recipepuppy.com/api/?i=" + props.SearchQuery)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results)
         setItemArray(response.results)
       })
-      .catch(() => console.log("it didn't work"))
+      .catch(() => {
+        console.log("An Error Occured, Please Refresh The Page")
+        alert("An Error Occured, Please Refresh The Page")
+      })
   }, [props.SearchQuery])
 
   var Cards: JSX.Element[] = []

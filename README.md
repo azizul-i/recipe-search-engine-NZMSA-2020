@@ -17,7 +17,7 @@ The pipeline then archives the artifact and publishes it for the Release Contino
 
 **Release Pipeline**
 The Continous deployment is triggered when a new built artifact is published from the build pipeline.
-The applied Branch filter is the master, so that only the artifacts published from the master branch will cause the Release CD pipeline to trigger (Not develop branches, because these are works in progress, this is not to be seen by the clients).
+The applied Branch filter is the master, so that only the artifacts published from the master branch will cause the Release CD pipeline to trigger (Not develop branches, because these are still work in progress branches, not a finalized addition).
 Stage 1 then uses the Azure App Service Deploy Task to deploy the release artifact to the resource and web app service on our Azure subscription.
 
 Links to Deployed Web app:

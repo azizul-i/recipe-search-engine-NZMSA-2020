@@ -1,3 +1,6 @@
+[![Build Status](https://dev.azure.com/msa-devops-2020-food-finder/msa-devops/_apis/build/status/azizul-i.recipe-search-engine-NZMSA-2020?branchName=master)](https://dev.azure.com/msa-devops-2020-food-finder/msa-devops/_build/latest?definitionId=1&branchName=master)
+
+
 # Food-Finder Web App MSA 2020 Phase 1
 A Typescript/React Web App that displays information about food recipes.
 To use the food-finder web app, simply add ingredients by typing it into the text field, and adding it to your ingredients list (these can be considered as the ingredients you have with you to prepare your next meal) The system/API will then search for recipes that contain whatever ingredients you have in your list, so that you can make delicious food with what you have in your cupboard.
@@ -8,8 +11,9 @@ Continous Deployment has been implemented using Azure DevOps services.
 
 **Build Pipeline**
 The build pipeline is set to trigger a build artifact when code has been commited to the master or develop branches.
+The build pipeline excludes trigger on changes to the README.md file, because it can cause unneccessary new release deployments.
 Variables have been used to minimise use of repeating long commands that reference specific locations/texts.
-Since we are using Node services, Node 10.x is installed.
+Since we are using Node services to use npm, Node 10.x is installed.
 We then check and install the required dependencies using npm install.
 The code is then tested using npm run test with CI being set to true, so that Watch usage is disabled and does not halt the pipeline. This is essential for future scope when reviewing pull requests and pushing code to develop or master branches, such that regression cases are handled.
 The pipeline then archives the artifact and publishes it for the Release Continous Deployment to trigger on.

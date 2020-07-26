@@ -3,8 +3,7 @@ A Typescript/React Web App that displays information about food recipes.
 To use the food-finder web app, simply add ingredients by typing it into the text field, and adding it to your ingredients list (these can be considered as the ingredients you have with you to prepare your next meal) The system/API will then search for recipes that contain whatever ingredients you have in your list, so that you can make delicious food with what you have in your cupboard.
 
 
-**DevOps 2020**
-
+**DevOps 2020:**
 Continous Deployment has been implemented using Azure DevOps services. 
 
 **Build Pipeline**

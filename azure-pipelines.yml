@@ -8,9 +8,6 @@ trigger:
     include:
     - master
     - develop
-  paths:
-    exclude:
-    - README.md 
 
 variables:
   rootDir: 'food-finder-msa-2020'

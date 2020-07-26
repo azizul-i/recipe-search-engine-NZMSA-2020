@@ -12,7 +12,7 @@ To run the web app locally:
 4) run `npm start` to run the web app
 
 
-**DevOps 2020:**
+## DevOps 2020
 Continous Deployment has been implemented using Azure DevOps services. 
 
 **Build Pipeline**

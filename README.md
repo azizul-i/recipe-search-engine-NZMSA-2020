@@ -11,7 +11,14 @@ Continous Deployment has been implemented using Azure DevOps services.
 
 **Build Pipeline**
 The build pipeline is set to trigger a build artifact when code has been commited to the master or develop branches.
-The build pipeline excludes trigger on changes to the README.md file, because it can cause unneccessary new release deployments.
+The build pipeline excludes trigger on changes to the README.md file, because it can cause unneccessary new release deployments. **EDIT** Removed, due to conflict with assignment requirements (continous deployment of commits to master branch), but the code I would have added to the YAML file is (with the appropriate indentations) :<br/>
+`branches:`<br/>
+&nbsp;&nbsp;` include:`<br/>
+&nbsp;&nbsp;` - master`<br/>
+&nbsp;&nbsp;` - develop`<br/>
+&nbsp;&nbsp;`  paths:`<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;`   exclude:`<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;`   - README.md ` <br/>
 Variables have been used to minimise use of repeating long commands that reference specific locations/texts.
 Since we are using Node services to use npm, Node 10.x is installed.
 We then check and install the required dependencies using npm install.
